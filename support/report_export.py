@@ -32,18 +32,20 @@ def markdown_to_docx(source,target):
     doc.save(target)
 
 def export_all():
-    base=ROOT;dest=base/'submissions';dest.mkdir(exist_ok=True)
-    for p in sorted((base/'templates').glob('Task*.md')):
+    base=ROOT.parent;dest=base/'outputs'/'submission';dest.mkdir(exist_ok=True)
+    for p in sorted((ROOT/'templates').glob('Task*.md')):
         if '[learner ID]' in p.read_text():print('WARNING: unfinished placeholder in',p.name)
         markdown_to_docx(p,dest/p.with_suffix('.docx').name)
     archive=dest/'E179_submission.zip'
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
-        for folder in ['templates','notebooks','outputs']:
+        for folder in ['support/templates','outputs']:
             for p in sorted((base/folder).rglob('*')):
-                if p.is_file() and '__pycache__' not in p.parts and '.ipynb_checkpoints' not in p.parts:
+                if p.is_file() and 'submission' not in p.parts and '__pycache__' not in p.parts and '.ipynb_checkpoints' not in p.parts:
                     z.write(p,p.relative_to(base))
         for p in sorted(dest.glob('*.docx')):z.write(p,'reports/'+p.name)
-        for rel in ['data/manifest.json','models/provenance.json','environment.json']:
+        for notebook in sorted(base.glob('*.ipynb')):
+            if notebook.name != '00_Check_Environment.ipynb': z.write(notebook,notebook.name)
+        for rel in ['support/data/manifest.json','support/models/provenance.json','support/.environment-results.json','support/.setup-commit']:
             p=base/rel
             if p.exists():z.write(p,'provenance/'+p.name)
     print('Save notebooks before exporting. Review reports and evidence, then download:',archive)

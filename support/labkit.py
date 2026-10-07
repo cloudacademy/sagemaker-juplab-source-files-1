@@ -24,7 +24,7 @@ def load_models(model_dir=None):
     import importlib.metadata as md
     p=Path(model_dir or ROOT/'models'); meta=json.loads((p/'provenance.json').read_text())
     for name,version in meta['versions'].items():
-        if md.version(name)!=version: raise RuntimeError(f'{name}: expected {version}; select the E179 v2 kernel or restore requirements.lock.txt')
+        if md.version(name)!=version: raise RuntimeError(f'{name}: expected {version}; select the E179 Assessment (CPU) kernel or restore requirements.lock.txt')
     for name,digest in meta['artifact_sha256'].items():
         if sha(p/name)!=digest: raise ValueError(f'Artifact hash mismatch: {name}')
     # Only load artifacts from this trusted release. A hash alone does not establish trust.
