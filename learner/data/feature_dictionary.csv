@@ -1,0 +1,31 @@
+feature,meaning,allowed_source_codes
+having_IP_Address,IP address used in the URL instead of a domain name,-1;1
+URL_Length,URL length heuristic,-1;0;1
+Shortining_Service,URL shortening service indicator,-1;1
+having_At_Symbol,At symbol in URL,-1;1
+double_slash_redirecting,Double slash redirection heuristic,-1;1
+Prefix_Suffix,Hyphenated domain prefix or suffix,-1;1
+having_Sub_Domain,Subdomain depth heuristic,-1;0;1
+SSLfinal_State,Historical HTTPS certificate and trust heuristic,-1;0;1
+Domain_registeration_length,Domain registration duration heuristic,-1;1
+Favicon,Favicon source-domain relationship,-1;1
+port,Nonstandard/open port heuristic,-1;1
+HTTPS_token,HTTPS token appearing in the domain name,-1;1
+Request_URL,External embedded resource ratio,-1;1
+URL_of_Anchor,Anchor target relationship and invalid link heuristic,-1;0;1
+Links_in_tags,External links in meta/script/link tags,-1;0;1
+SFH,Server form handler destination heuristic,-1;0;1
+Submitting_to_email,Form submission via email indicator,-1;1
+Abnormal_URL,URL and WHOIS identity relationship,-1;1
+Redirect,Website forwarding/redirect count category,0;1
+on_mouseover,Status-bar modification through mouseover,-1;1
+RightClick,Right-click disabling indicator,-1;1
+popUpWidnow,Pop-up window behaviour indicator,-1;1
+Iframe,Iframe behaviour indicator,-1;1
+age_of_domain,Domain age heuristic,-1;1
+DNSRecord,DNS/WHOIS record availability indicator,-1;1
+web_traffic,Historical popularity/traffic rank category,-1;0;1
+Page_Rank,Historical PageRank heuristic,-1;1
+Google_Index,Search-engine index presence,-1;1
+Links_pointing_to_page,Links pointing to the page category,-1;0;1
+Statistical_report,Historical blacklist/statistical report indicator,-1;1

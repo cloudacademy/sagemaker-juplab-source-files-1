@@ -1,0 +1,74 @@
+{
+  "purpose": "Publisher-trained educational artifacts, not commercially pretrained detectors",
+  "seed": 179,
+  "features": [
+    "having_IP_Address",
+    "URL_Length",
+    "Shortining_Service",
+    "having_At_Symbol",
+    "double_slash_redirecting",
+    "Prefix_Suffix",
+    "having_Sub_Domain",
+    "SSLfinal_State",
+    "Domain_registeration_length",
+    "Favicon",
+    "port",
+    "HTTPS_token",
+    "Request_URL",
+    "URL_of_Anchor",
+    "Links_in_tags",
+    "SFH",
+    "Submitting_to_email",
+    "Abnormal_URL",
+    "Redirect",
+    "on_mouseover",
+    "RightClick",
+    "popUpWidnow",
+    "Iframe",
+    "age_of_domain",
+    "DNSRecord",
+    "web_traffic",
+    "Page_Rank",
+    "Google_Index",
+    "Links_pointing_to_page",
+    "Statistical_report"
+  ],
+  "positive_class": "phishing = 1",
+  "training_rows": 3432,
+  "training_sha256": "9127a1e4cbad344f268140daa9f04fac69418a2073f3760513b6af06473e0a90",
+  "python": "3.12.14",
+  "versions": {
+    "scikit-learn": "1.8.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "joblib": "1.5.3",
+    "xgboost-cpu": "3.4.1"
+  },
+  "artifact_sha256": {
+    "logistic.joblib": "1f6d95e39868634993d3b02047c164706a85202ea4c0ea177435da753a03113e",
+    "xgboost.ubj": "1d0ac7075971320a544663b3401ea70e2911700c557d7f925429e6749d8a2212"
+  },
+  "hyperparameters": {
+    "Logistic": {
+      "C": 1,
+      "max_iter": 1500,
+      "preprocessing": "one-hot each feature [-1,0,1]"
+    },
+    "XGBoost": {
+      "objective": "binary:logistic",
+      "colsample_bytree": 1,
+      "device": "cpu",
+      "enable_categorical": true,
+      "eval_metric": "logloss",
+      "learning_rate": 0.07,
+      "max_depth": 4,
+      "missing": NaN,
+      "n_estimators": 160,
+      "n_jobs": 2,
+      "random_state": 179,
+      "reg_lambda": 3,
+      "subsample": 1,
+      "tree_method": "hist"
+    }
+  }
+}

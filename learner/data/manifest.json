@@ -1,0 +1,31 @@
+{
+  "source_url": "https://archive.ics.uci.edu/static/public/327/phishing+websites.zip",
+  "source_sha256": "514f582cb44cba17251baf1d59f64cddff16efa2b644d091ce8d2a1e8d492940",
+  "source_rows": 11055,
+  "quarantined_conflicting_rows": 357,
+  "collapsed_duplicate_rows": 4977,
+  "retained_unique_rows": 5721,
+  "split_seed": 179,
+  "splits": {
+    "training": {
+      "rows": 3432,
+      "phishing": 1773
+    },
+    "validation": {
+      "rows": 1144,
+      "phishing": 591
+    },
+    "holdout": {
+      "rows": 1145,
+      "phishing": 591
+    }
+  },
+  "stress_edits": {
+    "having_IP_Address": 1,
+    "URL_Length": 1,
+    "having_At_Symbol": 1,
+    "Prefix_Suffix": 1,
+    "SSLfinal_State": 1
+  },
+  "shift": "holdout sampling with replacement; SSLfinal_State=1 weight 5 vs 1 otherwise; seed 179; paired/dependent evidence"
+}
